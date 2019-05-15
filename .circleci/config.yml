@@ -3,3 +3,6 @@ jobs:
   build:
     docker:
       - image: rastadidi/rfc4180-validator:latest
+    steps:
+      - checkout
+      - run: echo "A first hello"
