@@ -33,7 +33,6 @@ workflows:
       - test-utf8
       - test-csv
       - process
-        type: approval
         requires:
           - build
           - test-utf8
