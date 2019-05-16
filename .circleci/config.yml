@@ -35,3 +35,5 @@ workflows:
       - process:
            requires:
              - build
+             - test-utf8
+             - test-csv
