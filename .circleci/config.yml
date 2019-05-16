@@ -1,24 +1,20 @@
-version: 2
+version: 2.1
 jobs:
- build:
-   machine: true
-   steps:
-     - checkout
-     # start proprietary DB using private Docker image
-     # with credentials stored in the UI
-     - run: docker pull rastadidi/rfc4180-validator:latest
-
-     # build the application image
-     - run: docker run -v ~/:/input rastadidi/rfc4180-validator
-    
-
- validate-utf-8:
-   machine: true
-   steps:
-     - checkout
-     # Pull the dediacted image
-     - run: docker pull rastadidi/rfc4180-validator:latest
-
-     # build the application image
-     - run: docker run -v ~/:/input rastadidi/rfc4180-validator
-    
+  build:
+    docker:
+      - image: rastadidi/rfc4180-validator:latest
+    steps:
+      - checkout
+      - run: echo "Pulling docker image... or do some compile/build/processing..."
+  test:
+    docker:
+      - image: docker pull rastadidi/rfc4180-validator:latest
+    steps:
+      - checkout
+      - run: docker run -v ~/:/input rastadidi/rfc4180-validator
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - build
+      - test
