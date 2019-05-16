@@ -33,3 +33,5 @@ workflows:
       - test-utf8
       - test-csv
       - process
+          requires:
+            - build
