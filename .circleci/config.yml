@@ -16,7 +16,7 @@ jobs:
    machine: true
    steps:
      - checkout
-		# Pull the dediacted image
+     # Pull the dediacted image
      - run: docker pull rastadidi/rfc4180-validator:latest
 
      # build the application image
