@@ -7,11 +7,12 @@ jobs:
       - checkout
       - run: echo "Pulling docker image... or do some compile/build/processing..."
   test:
-    docker:
-      - image: rastadidi/rfc4180-validator:latest
+    #docker:
+    #  - image: rastadidi/rfc4180-validator:latest
     steps:
       - checkout
-      - run: docker run -v ~/:/input rastadidi/rfc4180-validator
+      - run: docker pull rastadidi/rfc4180-validator:latest
+	  - run: docker run -v ~/:/input rastadidi/rfc4180-validator
 workflows:
   version: 2
   build_and_test:
