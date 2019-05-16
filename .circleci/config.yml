@@ -5,8 +5,8 @@ jobs:
       - image: rastadidi/rfc4180-validator:latest
     steps:
       - checkout
-      - run: echo "Pulling docker image... or do some compile/build/processing..."
-  test:
+      - run: echo "Pulling docker image... or do some compile/build/processing...generate files..."
+  test-utf8:
     docker:
       - image: rastadidi/rfc4180-validator:latest
     steps:
@@ -17,4 +17,4 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test
+      - test-utf8
