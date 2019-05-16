@@ -1,9 +1,9 @@
-version: 2
+version: 2.1
 executors:
   my-executor:
     docker:
       - image: rastadidi/rfc4180-validator:latest
-      
+
 jobs:
   my-job:
     executor: my-executor
