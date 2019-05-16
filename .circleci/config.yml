@@ -10,3 +10,15 @@ jobs:
 
      # build the application image
      - run: docker run -v ~/:/input rastadidi/rfc4180-validator
+    
+
+ validate-utf-8:
+   machine: true
+   steps:
+     - checkout
+		# Pull the dediacted image
+     - run: docker pull rastadidi/rfc4180-validator:latest
+
+     # build the application image
+     - run: docker run -v ~/:/input rastadidi/rfc4180-validator
+    
