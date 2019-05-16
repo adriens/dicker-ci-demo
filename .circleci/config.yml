@@ -1,11 +1,12 @@
-version: 2.1
-executors:
-  my-executor:
-    docker:
-      - image: rastadidi/rfc4180-validator:latest
-
+version: 2
 jobs:
-  my-job:
-    executor: my-executor
-    steps:
-      - run: echo outside the executor
+ build:
+   machine: true
+   steps:
+     - checkout
+     # start proprietary DB using private Docker image
+     # with credentials stored in the UI
+     - run: docker pull rastadidi/rfc4180-validator:latest
+
+     # build the application image
+     - run: docker run -v ~/:/input rastadidi/rfc4180-validator
