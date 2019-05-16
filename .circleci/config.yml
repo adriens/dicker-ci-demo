@@ -7,12 +7,11 @@ jobs:
       - checkout
       - run: echo "Pulling docker image... or do some compile/build/processing...generate files..."
   test-utf8:
-    docker:
-      - image: rastadidi/rfc4180-validator:latest
+    machine: true
     steps:
       - checkout
       - run: echo "Testing UTF-8 encoding..."
-      - run: ls -la
+      - run: docker pull rastadidi/rfc4180-validator:latest
 workflows:
   version: 2
   build_and_test:
