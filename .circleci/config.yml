@@ -13,9 +13,17 @@ jobs:
       - run: echo "Testing UTF-8 encoding..."
       - run: docker pull rastadidi/rfc4180-validator:latest
       - run: docker run -v ~/:/input rastadidi/rfc4180-validator
+  test-csv:
+    machine: true
+    steps:
+      - checkout
+      - run: echo "Testing csv quality..."
+      - run: docker pull rastadidi/rfc4180-validator:latest
+      - run: docker run -v ~/:/input rastadidi/rfc4180-validator
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
       - test-utf8
+      - test-csv
