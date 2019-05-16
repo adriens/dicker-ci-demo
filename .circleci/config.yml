@@ -8,7 +8,7 @@ jobs:
       - run: echo "Pulling docker image... or do some compile/build/processing..."
   test:
     docker:
-      - image: docker pull rastadidi/rfc4180-validator:latest
+      - image: rastadidi/rfc4180-validator:latest
     steps:
       - checkout
       - run: docker run -v ~/:/input rastadidi/rfc4180-validator
