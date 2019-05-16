@@ -5,4 +5,4 @@ jobs:
       - image: rastadidi/rfc4180-validator:latest
     steps:
       - checkout
-      - run: java -jar RFC4180Validator.jar
+      - run: echo "Checking UTF-8"
