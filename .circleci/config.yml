@@ -12,8 +12,7 @@ jobs:
     steps:
       - checkout
       - run: echo "Testing UTF-8 encoding..."
-      - run: docker pull rastadidi/rfc4180-validator:latest
-      - run: docker run -v ~/:/input rastadidi/rfc4180-validator
+      - run: ls -la
 workflows:
   version: 2
   build_and_test:
